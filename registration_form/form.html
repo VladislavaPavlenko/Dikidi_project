@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Авторизация</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body style="background-color: lightgray;">
+	<div style="display: flex; justify-content: center; align-items: center; margin-top: 150px;">
+		<div class="container col-md-4" style="background-color:azure; border-radius: 1.5em; border: 6px solid grey; padding-bottom: 10px;">
+			<form class="form-signin" method="post">
+				<h1 class="form-signin-heading" style="margin-bottom: 1px;">Авторизация</h1>
+				<lebel class="form-signin-heading" style="color: grey;">Пожалуйста, авторизуйтесь</lebel>
+				<h5 class="form-signin-heading"><strong>Логин</strong></h5>
+				<input type="email" id="inputEmail" class="form-control" placeholder="Логин" required>
+				<h5 class="form-signin-heading"><strong>Пароль</strong></h5>
+				
+				<div class="input-group">
+					<input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-success btn-group btn-group-xs" aria-haspopup="true" aria-expanded="false"><font style="vertical-align: inherit;">&crarr;</font></button>
+					</div>
+				</div>
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="remember-me" checked> Запомнить меня на этом компьютере
+					</label>
+				</div>
+				<a href="javascript:void(0)">Забыли пароль?</a>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

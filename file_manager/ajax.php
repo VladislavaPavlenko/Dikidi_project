@@ -6,8 +6,10 @@ $oper = $_POST['oper'];
 switch ($oper) {
 	case "load_dir_files":
 		$folderPath = $_POST['folder_path'];
-			$folderInfo = load_dir_files($folderPath);
-			$html = getFileManagerHtml($folderInfo);
+		if (!stripos($folderPath, "example_file_manager")) $folderPath = "";
+		
+		$folderInfo = load_dir_files($folderPath);
+		$html = getFileManagerHtml($folderInfo);
 		echo json_encode(['folder_path' => $folderPath, 'html' => $html]);
 	break;
 

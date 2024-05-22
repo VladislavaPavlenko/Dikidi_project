@@ -34,6 +34,7 @@ function UnHide(elem) {
 $("body").on('click', ".folder", function() {
 	let folder_path = $(this).data('folder-path');
 	if (folder_path == "") return false;
+	if (!folder_path.includes("example_file_manager")) location.reload();
 
 	$(this).removeClass('folder');
 	var $this = $(this);

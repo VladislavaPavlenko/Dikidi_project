@@ -1,6 +1,8 @@
 <?php
 
 function load_dir_files($dirPath) {
+	if (empty($dirPath)) return [];
+
   $dirData = glob($dirPath . "/[!.,!..]*", GLOB_BRACE);
 	$folders = [];
 	$files = [];

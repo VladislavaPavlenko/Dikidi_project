@@ -2,6 +2,17 @@
 
 function load_dir_files($dirPath) {
 	if (empty($dirPath)) return [];
+	$dirPath = str_replace('//', '/', $dirPath);
+	
+	foreach (explode('/', $dirPath) as $name) {
+		if (in_array($name, ['..', '.'])) {
+			return ['error' => true];
+		}
+	}
+
+	if (stripos($dirPath, __DIR__) === FALSE) {
+		return ['error' => true];
+	}
 
   $dirData = glob($dirPath . "/[!.,!..]*", GLOB_BRACE);
 	$folders = [];
@@ -31,7 +42,7 @@ function getFileManagerHtml($fileManagerInfo) {
 				<li>
 					<div>
 						<p>
-							<a href="#">' . $name . '</a>
+							<a href="javascript:void(0)">' . $name . '</a>
 						</p>
 					</div>
 				</li>
@@ -45,8 +56,8 @@ function getFileManagerHtml($fileManagerInfo) {
 				<li class="cl">
 					<div>
 						<p>
-							<a href="#" class="sc folder" data-folder-path="' . $path . '" onclick="return UnHide(this)">►</a>
-							<a href="#">' . $name . '</a>
+							<a href="javascript:void(0)" class="sc folder" data-folder-path="' . $path . '" onclick="UnHide(this)">►</a>
+							<a href="javascript:void(0)">' . $name . '</a>
 						</p>
 					</div>
 						

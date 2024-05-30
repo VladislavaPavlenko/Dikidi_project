@@ -36,10 +36,15 @@ $("body").on('click', ".folder", function() {
 	if (folder_path == "") return false;
 	if (!folder_path.includes("example_file_manager")) location.reload();
 
-	$(this).removeClass('folder');
 	var $this = $(this);
 	aj('load_dir_files', $.param({folder_path}), "", function(data) {
 		data = JSON.parse(data);
-		$this.closest('li').append("<ul>" + data['html'] + "</ul>");
+		if (data['error']) {
+			alert("Попробуйте сначала!")
+			return false;
+		} else {
+			$this.removeClass('folder');
+			$this.closest('li').append("<ul>" + data['html'] + "</ul>");
+		}
 	});
 });
